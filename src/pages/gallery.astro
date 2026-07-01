@@ -6,7 +6,6 @@ const paintings = await getCollection('paintings');
 const sortedPaintings = paintings.sort(
   (a, b) => a.data.order - b.data.order
 );
-console.log('paintings', sortedPaintings.length, sortedPaintings);
 ---
 
 <!doctype html>
