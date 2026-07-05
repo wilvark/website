@@ -28,35 +28,29 @@ const { Content } = await render(painting);
       <nav class="page-nav" aria-label="Painting navigation">
         <a href="/gallery">Gallery</a>
       </nav>
-      <article class="painting">
-        <div class="painting-heading">
-            <h2>
-            <a href={`/paintings/${painting.id}`}>
-                {painting.data.title}
-            </a>
-            </h2>
-        </div>
 
-        <a href={`/paintings/${painting.id}`} class="painting-image-link">
-            <img
-            src={painting.data.image}
-            alt={painting.data.imageAlt}
-            loading="lazy"
-            />
-        </a>
+      <article>
+        <header class="painting-header">
+          {painting.data.series && <p class="series">{painting.data.series}</p>}
+          <h1>{painting.data.title}</h1>
+        </header>
 
-        <div class="painting-footer">
-            <div class="painting-meta">
+        <figure class="painting-image">
+          <img src={painting.data.image} alt={painting.data.imageAlt} />
+        </figure>
+
+        <div class="painting-details">
+          <div class="meta">
             <p>{painting.data.medium}</p>
             <p>{painting.data.size}</p>
             <p>{painting.data.year}</p>
-            </div>
+          </div>
 
-            <a href={`/paintings/${painting.id}`} class="view-link">
-            View painting
-            </a>
+          <div class="statement">
+            <Content />
+          </div>
         </div>
-        </article>
+      </article>
     </main>
   </body>
 </html>
