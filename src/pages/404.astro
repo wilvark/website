@@ -4,23 +4,19 @@ import SiteHeader from '../components/SiteHeader.astro';
 ---
 
 <BaseLayout
-  title="Contact | Wil Vark"
-  description="Contact Wil Vark about paintings, exhibitions, or available works."
+  title="Page not found | Wil Vark"
+  description="This page could not be found."
 >
   <main class="page">
     <SiteHeader />
 
-    <article class="prose">
-      <h1>Contact</h1>
+    <section class="prose">
+      <h1>Not found</h1>
 
-      <p>
-        For questions about paintings, available works, or exhibitions, please email:
-      </p>
+      <p>This page doesn't exist, or has quietly moved on.</p>
 
-      <p class="email">
-        <a href="mailto:wilvark@gmail.com">wilvark@gmail.com</a>
-      </p>
-    </article>
+      <a href="/gallery" class="return-link">Enter Gallery</a>
+    </section>
   </main>
 </BaseLayout>
 
@@ -44,24 +40,25 @@ import SiteHeader from '../components/SiteHeader.astro';
   }
 
   .prose p {
-    margin: 0 0 1.75rem;
+    margin: 0 0 3rem;
     font-size: clamp(1.15rem, 2vw, 1.35rem);
     line-height: 1.65;
+    color: var(--color-muted);
   }
 
-  .email {
-    margin-top: 2.5rem;
-  }
-
-  .email a {
+  .return-link {
+    display: inline-block;
     color: var(--color-text);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
     text-decoration: none;
+    text-transform: uppercase;
     border-bottom: 1px solid var(--color-line);
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.4rem;
   }
 
-  .email a:hover,
-  .email a:focus-visible {
+  .return-link:hover,
+  .return-link:focus-visible {
     color: var(--color-muted);
     border-color: var(--color-muted);
   }

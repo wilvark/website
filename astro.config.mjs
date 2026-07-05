@@ -8,5 +8,5 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://wilvark.com',
   integrations: [sitemap()],
-  adapter: cloudflare()
+  adapter: cloudflare({ imageService: 'compile' })
 });
