@@ -1,5 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
 
 export async function getStaticPaths() {
   const paintings = await getCollection('paintings');
@@ -14,92 +16,45 @@ const { painting } = Astro.props;
 const { Content } = await render(painting);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content={`${painting.data.title} by Wil Vark.`} />
-    <title>{painting.data.title} | Wil Vark</title>
-  </head>
+<BaseLayout
+  title={`${painting.data.title} | Wil Vark`}
+  description={`${painting.data.title} — ${painting.data.medium}, ${painting.data.size}, ${painting.data.year}. By Wil Vark.`}
+  ogImage={painting.data.image}
+  ogType="article"
+>
+  <main class="painting-page">
+    <SiteHeader />
 
-  <body>
-    <main class="painting-page">
-      <nav class="page-nav" aria-label="Painting navigation">
-        <a href="/gallery">Gallery</a>
-      </nav>
-      <article class="painting">
-        <div class="painting-heading">
-            <h2>
-            <a href={`/paintings/${painting.id}`}>
-                {painting.data.title}
-            </a>
-            </h2>
+    <article>
+      <header class="painting-header">
+        {painting.data.series && <p class="series">{painting.data.series}</p>}
+        <h1>{painting.data.title}</h1>
+      </header>
+
+      <figure class="painting-image">
+        <img src={painting.data.image} alt={painting.data.imageAlt} />
+      </figure>
+
+      <div class="painting-details">
+        <div class="meta">
+          <p>{painting.data.medium}</p>
+          <p>{painting.data.size}</p>
+          <p>{painting.data.year}</p>
         </div>
 
-        <a href={`/paintings/${painting.id}`} class="painting-image-link">
-            <img
-            src={painting.data.image}
-            alt={painting.data.imageAlt}
-            loading="lazy"
-            />
-        </a>
-
-        <div class="painting-footer">
-            <div class="painting-meta">
-            <p>{painting.data.medium}</p>
-            <p>{painting.data.size}</p>
-            <p>{painting.data.year}</p>
-            </div>
-
-            <a href={`/paintings/${painting.id}`} class="view-link">
-            View painting
-            </a>
+        <div class="statement">
+          <Content />
         </div>
-        </article>
-    </main>
-  </body>
-</html>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
 
 <style>
-  :root {
-    --color-ground: #f7f4ef;
-    --color-text: #1f1f1d;
-    --color-muted: #6f6a61;
-    --color-line: #ded8cf;
-  }
-
-  html {
-    background: var(--color-ground);
-    color: var(--color-text);
-    font-family: Georgia, 'Times New Roman', serif;
-  }
-
-  body {
-    margin: 0;
-  }
-
   .painting-page {
     max-width: 78rem;
     margin: 0 auto;
     padding: 3rem 1.5rem 8rem;
-  }
-
-  .page-nav {
-    margin-bottom: 6rem;
-  }
-
-  .page-nav a {
-    color: var(--color-muted);
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  .page-nav a:hover,
-  .page-nav a:focus-visible {
-    color: var(--color-text);
   }
 
   .painting-header {

@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 
 const paintings = await getCollection('paintings');
 
@@ -8,103 +10,61 @@ const sortedPaintings = paintings.sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta
-      name="description"
-      content="A gallery of contemporary oil paintings by Wil Vark."
-    />
-    <title>Gallery | Wil Vark</title>
-  </head>
+<BaseLayout
+  title="Gallery | Wil Vark"
+  description="A gallery of contemporary oil paintings by Wil Vark."
+>
+  <main class="gallery">
+    <SiteHeader />
 
-  <body>
-    <main class="gallery">
-        <header class="gallery-header">
-            <a href="/" class="home-link">Wil Vark</a>
+    <header class="gallery-header">
+      <h1>Gallery</h1>
 
-            <h1>Gallery</h1>
+      <p>
+        Contemporary oil paintings exploring memory, season, and quiet
+        observation through birds.
+      </p>
 
-            <p>
-                Contemporary oil paintings exploring memory, season, and quiet
-                observation through birds.
-            </p>
+      <a href="#paintings" class="view-works-link">View Works</a>
+    </header>
 
-            <a href="#paintings" class="view-works-link">View Works</a>
-        </header>
+    <section id="paintings" class="painting-list" aria-label="Paintings">
+      {
+        sortedPaintings.map((painting, index) => (
+          <article class="painting">
+            <h2>{painting.data.title}</h2>
 
-      <section id="paintings" class="painting-list" aria-label="Paintings">
-        {
-          sortedPaintings.map((painting) => (
-            <article class="painting">
-              <h2>{painting.data.title}</h2>
+            <a href={`/paintings/${painting.id}`} class="painting-image-link">
+              <img
+                src={painting.data.image}
+                alt={painting.data.imageAlt}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+            </a>
 
-              <a href={`/paintings/${painting.id}`} class="painting-image-link">
-                <img
-                  src={painting.data.image}
-                  alt={painting.data.imageAlt}
-                  loading="lazy"
-                />
-              </a>
-
-              <div class="painting-meta">
-                <p>{painting.data.medium}</p>
-                <p>{painting.data.size}</p>
-                <p>{painting.data.year}</p>
-              </div>
-            </article>
-          ))
-        }
-      </section>
-    </main>
-  </body>
-</html>
+            <div class="painting-meta">
+              <p>{painting.data.medium}</p>
+              <p>{painting.data.size}</p>
+              <p>{painting.data.year}</p>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</BaseLayout>
 
 <style>
-  :root {
-    --color-ground: #f7f4ef;
-    --color-text: #1f1f1d;
-    --color-muted: #6f6a61;
-    --color-line: #ded8cf;
-  }
-
-  html {
-    background: var(--color-ground);
-    color: var(--color-text);
-    font-family: Georgia, 'Times New Roman', serif;
-  }
-
-  body {
-    margin: 0;
-  }
-
   .gallery {
     max-width: 78rem;
     margin: 0 auto;
     padding: 2.5rem 1.5rem 8rem;
   }
 
-.gallery-header {
-  max-width: 42rem;
-  margin: 0 auto 3.5rem;
-  text-align: center;
-}
-
-.home-link {
-  display: inline-block;
-  margin-bottom: 3rem;
-  color: var(--color-muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-  .home-link:hover,
-  .home-link:focus-visible {
-    color: var(--color-text);
+  .gallery-header {
+    max-width: 42rem;
+    margin: 0 auto 3.5rem;
+    text-align: center;
   }
 
   h1 {
@@ -124,27 +84,27 @@ const sortedPaintings = paintings.sort(
   }
 
   .view-works-link {
-  display: inline-block;
-  margin-top: 3rem;
-  color: var(--color-text);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--color-line);
-  padding-bottom: 0.4rem;
-}
+    display: inline-block;
+    margin-top: 3rem;
+    color: var(--color-text);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--color-line);
+    padding-bottom: 0.4rem;
+  }
 
-.view-works-link:hover,
-.view-works-link:focus-visible {
-  color: var(--color-muted);
-  border-color: var(--color-muted);
-}
+  .view-works-link:hover,
+  .view-works-link:focus-visible {
+    color: var(--color-muted);
+    border-color: var(--color-muted);
+  }
 
   .painting-list {
     display: grid;
     gap: 7rem;
-    }
+  }
 
   .painting {
     display: grid;
@@ -153,39 +113,39 @@ const sortedPaintings = paintings.sort(
     margin: 0 auto;
     padding-bottom: 8rem;
     border-bottom: 1px solid var(--color-line);
-    }
+  }
 
   .painting:last-child {
     border-bottom: 0;
     padding-bottom: 0;
   }
 
-    .painting h2 {
-        margin: 0;
-        max-width: 68rem;
-        font-size: clamp(2.4rem, 5vw, 4.75rem);
-        font-weight: 400;
-        line-height: 1.05;
-        letter-spacing: -0.04em;
-    }
+  .painting h2 {
+    margin: 0;
+    max-width: 68rem;
+    font-size: clamp(2.4rem, 5vw, 4.75rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
 
-    .painting-image-link {
-        display: block;
-        min-height: 16rem;
-        background: #eee9e1;
-    }
+  .painting-image-link {
+    display: block;
+    min-height: 16rem;
+    background: #eee9e1;
+  }
 
-    .painting-image-link img {
-        display: block;
-    }
+  .painting-image-link img {
+    display: block;
+  }
 
-    .painting img {
-        display: block;
-        width: 100%;
-        max-height: 72vh;
-        object-fit: contain;
-        background: #eee9e1;
-    }
+  .painting img {
+    display: block;
+    width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    background: #eee9e1;
+  }
 
   .painting-meta {
     color: var(--color-muted);
@@ -199,7 +159,7 @@ const sortedPaintings = paintings.sort(
 
   @media (min-width: 760px) {
     .gallery {
-      padding-top: 5rem;
+      padding-top: 3.5rem;
     }
 
     .painting {
@@ -211,5 +171,4 @@ const sortedPaintings = paintings.sort(
       gap: 1.5rem;
     }
   }
-
 </style>

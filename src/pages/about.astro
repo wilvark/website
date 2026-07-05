@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+
+<BaseLayout
+  title="About | Wil Vark"
+  description="About Wil Vark — contemporary oil paintings exploring memory, season, and quiet observation through birds."
+>
+  <main class="page">
+    <SiteHeader />
+
+    <article class="prose">
+      <h1>About</h1>
+
+      <p>
+        Wil Vark makes small contemporary oil paintings that use songbirds,
+        seasonal color, and open fields of quiet space to think about memory
+        — what is hoped for, what is accepted, and what is looked back on.
+      </p>
+
+      <p>
+        The paintings are not portraits of birds. Each one begins with a
+        season and a feeling, and the bird arrives as a small, living point
+        of attention inside a larger silence. The work favors sparse
+        composition, restrained brushwork, and simple titles that name the
+        feeling rather than the subject.
+      </p>
+
+      <p>
+        The current series, <em>Memory of Seasons</em>, is painted in oil on
+        9 × 12 inch canvases.
+      </p>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .page {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 8rem;
+  }
+
+  .prose {
+    max-width: 38rem;
+  }
+
+  h1 {
+    margin: 0 0 3rem;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .prose p {
+    margin: 0 0 1.75rem;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    line-height: 1.65;
+  }
+
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+</style>

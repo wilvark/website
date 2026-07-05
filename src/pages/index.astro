@@ -1,55 +1,33 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta
-      name="description"
-      content="Contemporary oil paintings exploring memory, season, and quiet observation through birds."
-    />
-    <title>Wil Vark | Contemporary Oil Paintings</title>
-  </head>
+<BaseLayout
+  title="Wil Vark | Contemporary Oil Paintings"
+  description="Contemporary oil paintings exploring memory, season, and quiet observation through birds."
+>
+  <main class="home">
+    <section class="intro" aria-labelledby="site-title">
+      <p class="eyebrow">Contemporary Oil Paintings</p>
 
-  <body>
-    <main class="home">
-      <section class="intro" aria-labelledby="site-title">
-        <p class="eyebrow">Contemporary Oil Paintings</p>
+      <h1 id="site-title">Wil Vark</h1>
 
-        <h1 id="site-title">Wil Vark</h1>
+      <p class="statement">
+        Exploring memory through birds,<br />
+        seasons, and silence.
+      </p>
 
-        <p class="statement">
-          Exploring memory through birds,<br />
-          seasons, and silence.
-        </p>
+      <a href="/gallery" class="enter-link">Enter Gallery</a>
 
-        <a href="/gallery" class="enter-link">Enter Gallery</a>
-      </section>
-    </main>
-  </body>
-</html>
+      <nav class="quiet-nav" aria-label="Site">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </section>
+  </main>
+</BaseLayout>
 
 <style>
-  :root {
-    --color-ground: #f7f4ef;
-    --color-text: #1f1f1d;
-    --color-muted: #6f6a61;
-    --color-line: #ded8cf;
-  }
-
-  html {
-    background: var(--color-ground);
-    color: var(--color-text);
-    font-family: Georgia, 'Times New Roman', serif;
-  }
-
-  body {
-    margin: 0;
-    min-height: 100vh;
-  }
-
   .home {
     min-height: 100vh;
     display: grid;
@@ -104,5 +82,25 @@
   .enter-link:focus-visible {
     color: var(--color-muted);
     border-color: var(--color-muted);
+  }
+
+  .quiet-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 5rem;
+  }
+
+  .quiet-nav a {
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .quiet-nav a:hover,
+  .quiet-nav a:focus-visible {
+    color: var(--color-text);
   }
 </style>

@@ -1,0 +1,16 @@
+:root {
+  --color-ground: #f7f4ef;
+  --color-text: #1f1f1d;
+  --color-muted: #6f6a61;
+  --color-line: #ded8cf;
+}
+
+html {
+  background: var(--color-ground);
+  color: var(--color-text);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+body {
+  margin: 0;
+}
