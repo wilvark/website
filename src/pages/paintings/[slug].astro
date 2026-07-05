@@ -7,13 +7,19 @@ import SiteHeader from '../../components/SiteHeader.astro';
 export async function getStaticPaths() {
   const paintings = await getCollection('paintings');
 
-  return paintings.map((painting) => ({
+  const sorted = paintings.sort((a, b) => a.data.order - b.data.order);
+
+  return sorted.map((painting, index) => ({
     params: { slug: painting.id },
-    props: { painting },
+    props: {
+      painting,
+      prev: index > 0 ? sorted[index - 1] : null,
+      next: index < sorted.length - 1 ? sorted[index + 1] : null,
+    },
   }));
 }
 
-const { painting } = Astro.props;
+const { painting, prev, next } = Astro.props;
 const { Content } = await render(painting);
 ---
 
@@ -55,6 +61,27 @@ const { Content } = await render(painting);
         </div>
       </div>
     </article>
+
+    <nav class="painting-nav" aria-label="More paintings">
+      {
+        prev ? (
+          <a href={`/paintings/${prev.id}`} rel="prev" class="nav-prev">
+            <span class="nav-label">Previous</span>
+            <span class="nav-title">{prev.data.title}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next && (
+          <a href={`/paintings/${next.id}`} rel="next" class="nav-next">
+            <span class="nav-label">Next</span>
+            <span class="nav-title">{next.data.title}</span>
+          </a>
+        )
+      }
+    </nav>
   </main>
 </BaseLayout>
 
@@ -125,6 +152,44 @@ const { Content } = await render(painting);
 
   .statement :global(p) {
     margin: 0;
+  }
+
+  .painting-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 6rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .painting-nav a {
+    display: grid;
+    gap: 0.75rem;
+    text-decoration: none;
+    max-width: 45%;
+  }
+
+  .nav-next {
+    text-align: right;
+  }
+
+  .nav-label {
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .nav-title {
+    color: var(--color-text);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.3;
+  }
+
+  .painting-nav a:hover .nav-title,
+  .painting-nav a:focus-visible .nav-title {
+    color: var(--color-muted);
   }
 
   @media (min-width: 820px) {
