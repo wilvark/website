@@ -9,7 +9,7 @@ status: "In progress"
 image: "/images/paintings/rememberance-of-summer.jpg"
 imageAlt: "A small bird positioned on the right side of a quiet yellowish brown field, with open space extending to the right."
 featured: true
-order: 10
+order: 50
 ---
 
 A quiet painting about presence, stillness, and the rememberance of summer.
