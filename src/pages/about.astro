@@ -1,12 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Wil Vark',
+  url: 'https://wilvark.com',
+  jobTitle: 'Painter',
+  description:
+    'Contemporary oil paintings exploring memory, season, and quiet observation through birds.',
+  email: 'mailto:wilvark@gmail.com',
+};
 ---
 
 <BaseLayout
   title="About | Wil Vark"
   description="About Wil Vark — contemporary oil paintings exploring memory, season, and quiet observation through birds."
 >
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(personSchema)}
+  />
+
   <main class="page">
     <SiteHeader />
 
