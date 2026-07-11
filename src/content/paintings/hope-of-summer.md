@@ -5,7 +5,7 @@ medium: "Oil on canvas"
 size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Summer"
-status: "In progress"
+status: "Available"
 image: "../../assets/paintings/hope-of-summer.jpg"
 imageAlt: "A small white-eyed bird perched among blossoms against a warm summer field."
 featured: true

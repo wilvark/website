@@ -5,7 +5,7 @@ medium: "Oil on canvas"
 size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Winter"
-status: "In progress"
+status: "Available"
 image: "../../assets/paintings/hope-of-spring.jpg"
 imageAlt: "A small Chickadee leaping to the hope of spring against a cold winter field of grey."
 featured: true
