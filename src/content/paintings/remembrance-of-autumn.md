@@ -5,7 +5,7 @@ medium: "Oil on canvas"
 size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Winter"
-status: "In progress"
+status: "Available"
 image: "../../assets/paintings/remembrance-of-autumn.jpg"
 imageAlt: "A small bird positioned on the right side of a quiet grey field, with open space extending to the right."
 featured: true
