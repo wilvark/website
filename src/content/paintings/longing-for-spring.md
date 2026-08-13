@@ -7,7 +7,7 @@ series: "Memory of Seasons"
 season: "Winter"
 status: "Available"
 image: "../../assets/paintings/longing-for-spring.jpg"
-imageAlt: "A small bird positioned on the left side of a quiet grey field, with open space extending to the right."
+imageAlt: "A small kinglet positioned on the left side of a quiet grey field, with open space extending to the right."
 featured: true
 order: 12
 ---

@@ -7,7 +7,7 @@ series: "Memory of Seasons"
 season: "Summer"
 status: "Available"
 image: "../../assets/paintings/acceptance-of-summer.jpg"
-imageAlt: "A small yellow bird swoops down from the left to perched on a verdant branch against a warm summer field."
+imageAlt: "A small goldfinch swoops down from the left to perched on a verdant branch against a warm summer field."
 featured: true
 order: 40
 ---

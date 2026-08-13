@@ -7,7 +7,7 @@ series: "Memory of Seasons"
 season: "Summer"
 status: "Available"
 image: "../../assets/paintings/remembrance-of-spring.jpg"
-imageAlt: "A small bird positioned on the right side of a warn blue field, with open space extending to the right."
+imageAlt: "A small goldfinch positioned on the right side of a warn blue field, with open space extending to the right."
 featured: true
 order: 45
 ---

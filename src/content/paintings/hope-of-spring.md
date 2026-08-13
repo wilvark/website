@@ -7,7 +7,7 @@ series: "Memory of Seasons"
 season: "Winter"
 status: "Available"
 image: "../../assets/paintings/hope-of-spring.jpg"
-imageAlt: "A small Chickadee leaping to the hope of spring against a cold winter field of grey."
+imageAlt: "A small chickadee leaping to the hope of spring against a cold winter field of grey."
 featured: true
 order: 15
 ---
