@@ -12,4 +12,4 @@ featured: true
 order: 48
 ---
 
-A painting about warmth, belonging, and the feeling of autumn realized.
+A small cedar waxwing swoops down from the left to perched on a dry branch against a warm autumn field. A painting about warmth, belonging, and the feeling of autumn realized.
