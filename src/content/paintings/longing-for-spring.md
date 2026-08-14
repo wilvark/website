@@ -12,4 +12,4 @@ featured: true
 order: 12
 ---
 
-A quiet painting about presence, stillness, and the longing for spring.
+A small kinglet positioned on the left side of a quiet grey field, with open space extending to the right. A quiet painting about presence, stillness, and the longing for spring.

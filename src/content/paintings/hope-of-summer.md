@@ -12,4 +12,4 @@ featured: true
 order: 30
 ---
 
-A painting about warmth, lift, and the first feeling of summer becoming possible.
+A small white-eyed bird perched among blossoms against a warm summer field. A painting about warmth, lift, and the first feeling of summer becoming possible.

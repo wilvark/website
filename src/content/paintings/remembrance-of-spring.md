@@ -12,4 +12,4 @@ featured: true
 order: 45
 ---
 
-A quiet painting about presence, stillness, and the remembrance of spring.
+A small goldfinch positioned on the right side of a warn blue field, with open space extending to the right. A quiet painting about presence, stillness, and the remembrance of spring.

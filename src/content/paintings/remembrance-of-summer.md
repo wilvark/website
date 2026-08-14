@@ -12,4 +12,4 @@ featured: true
 order: 50
 ---
 
-A quiet painting about presence, stillness, and the remembrance of summer.
+A small carolina wren positioned on the right side of a quiet yellowish brown field, with open space extending to the right. A quiet painting about presence, stillness, and the remembrance of summer.

@@ -12,4 +12,4 @@ featured: true
 order: 15
 ---
 
-A painting about cold, hope, and the first desire for spring to come.
+A small chickadee leaping to the hope of spring against a cold winter field of grey. A painting about cold, hope, and the first desire for spring to come.

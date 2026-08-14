@@ -12,4 +12,4 @@ featured: true
 order: 20
 ---
 
-A quiet painting about arrival, stillness, and the remembrance of winter.
+A small gnatcatcher positioned on the left side of a quiet green field, with open space extending to the right. A quiet painting about arrival, stillness, and the remembrance of winter.

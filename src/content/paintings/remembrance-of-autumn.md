@@ -12,4 +12,4 @@ featured: true
 order: 10
 ---
 
-A quiet painting about presence, stillness, and the remembrance of autumn.
+A small carolina chickadee positioned on the right side of a quiet grey field, with open space extending to the left. A quiet painting about presence, stillness, and the remembrance of autumn.

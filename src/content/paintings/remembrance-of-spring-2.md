@@ -12,4 +12,4 @@ featured: true
 order: 46
 ---
 
-A quiet painting about presence, stillness, and the remembrance of spring.
+A cardinal positioned on the right side of a warn blue field, a shimmer of green leaves, with open space extending to the right. A quiet painting about presence, stillness, and the remembrance of spring.

@@ -12,4 +12,4 @@ featured: true
 order: 51
 ---
 
-A quiet painting about presence, stillness, and the remembrance of summer.
+A small eastern bluebird positioned on the right side of a quiet greyish blue field, with open space extending to the right. A quiet painting about presence, stillness, and the remembrance of summer.
