@@ -5,7 +5,7 @@ medium: "Oil on canvas"
 size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Winter"
-status: "Available"
+status: "Sold"
 image: "../../assets/paintings/remembrance-of-autumn.jpg"
 imageAlt: "A small carolina chickadee positioned on the right side of a quiet grey field, with open space extending to the left."
 featured: true
