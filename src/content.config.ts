@@ -17,6 +17,7 @@ const paintings = defineCollection({
       status: z
         .enum(['Available', 'Sold', 'Private collection', 'In progress'])
         .optional(),
+      price: z.number().positive().optional(),
       image: image(),
       imageAlt: z.string(),
       featured: z.boolean().default(false),

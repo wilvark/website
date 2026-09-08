@@ -6,6 +6,7 @@ size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Spring"
 status: "Available"
+price: 200
 image: "../../assets/paintings/acceptance-of-spring.jpg"
 imageAlt: "A small dark-eyed junco swoops down from the left to perched on a blossoming branch against a warm spring field."
 featured: true

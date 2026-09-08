@@ -50,7 +50,24 @@ const sortedPaintings = paintings.sort(
               <p>{painting.data.medium}</p>
               <p>{painting.data.size}</p>
               <p>{painting.data.year}</p>
-              <p>{painting.data.status}</p>
+              {
+                painting.data.status && (
+                  <p
+                    class:list={[
+                      'availability',
+                      { 'is-available': painting.data.status === 'Available' },
+                    ]}
+                  >
+                    <span>{painting.data.status}</span>
+                    {painting.data.status === 'Available' && painting.data.price && (
+                      <>
+                        <span aria-hidden="true">·</span>
+                        <span>${painting.data.price}</span>
+                      </>
+                    )}
+                  </p>
+                )
+              }
             </div>
           </article>
         ))
@@ -154,6 +171,13 @@ const sortedPaintings = paintings.sort(
 
   .painting-meta p {
     margin: 0;
+  }
+
+  .availability.is-available {
+    display: flex;
+    gap: 0.4rem;
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
   }
 
   @media (min-width: 760px) {
