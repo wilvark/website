@@ -6,6 +6,7 @@ size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Summer"
 status: "Available"
+price: 200
 image: "../../assets/paintings/hope-of-summer.jpg"
 imageAlt: "A small white-eyed bird perched among blossoms against a warm summer field."
 featured: true

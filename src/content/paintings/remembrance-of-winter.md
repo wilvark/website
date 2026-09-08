@@ -6,6 +6,7 @@ size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Spring"
 status: "Available"
+price: 200
 image: "../../assets/paintings/remembrance-of-winter.jpg"
 imageAlt: "A small gnatcatcher positioned on the left side of a quiet green field, with open space extending to the right."
 featured: true

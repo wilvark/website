@@ -6,6 +6,7 @@ size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Winter"
 status: "Available"
+price: 200
 image: "../../assets/paintings/hope-of-spring.jpg"
 imageAlt: "A small chickadee leaping to the hope of spring against a cold winter field of grey."
 featured: true
