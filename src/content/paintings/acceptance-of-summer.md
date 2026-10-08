@@ -13,4 +13,4 @@ featured: true
 order: 40
 ---
 
-A small goldfinch swoops down from the left to perched on a verdant branch against a warm summer field. A painting about warmth, belonging, and the feeling of summer realized.
+A small goldfinch swoops down from the left to perch on a verdant branch against a warm summer field. A painting about warmth, belonging, and the feeling of summer realized.

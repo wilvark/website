@@ -13,4 +13,4 @@ featured: true
 order: 16
 ---
 
-A small dark-eyed junco swoops down from the left to perched on a blossoming branch against a warm spring field. A painting about warmth, belonging, and the feeling of spring realized.
+A small dark-eyed junco swoops down from the left to perch on a blossoming branch against a warm spring field. A painting about warmth, belonging, and the feeling of spring realized.
