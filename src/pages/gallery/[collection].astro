@@ -1,0 +1,240 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { collectionDefinitions } from '../../data/collections';
+
+export async function getStaticPaths() {
+  const paintings = await getCollection('paintings');
+
+  return collectionDefinitions.map((collection) => ({
+    params: { collection: collection.slug },
+    props: {
+      collection,
+      paintings: paintings
+        .filter((painting) => painting.data.collection === collection.name)
+        .sort((a, b) => a.data.order - b.data.order),
+    },
+  }));
+}
+
+const { collection, paintings } = Astro.props;
+---
+
+<BaseLayout
+  title={`${collection.name} | Wil Vark`}
+  description={collection.description}
+>
+  <main class="gallery">
+    <SiteHeader />
+
+    <header class="gallery-header">
+      <a href="/gallery" class="back-link">Gallery</a>
+      <h1>{collection.name}</h1>
+      <p>{collection.description}</p>
+    </header>
+
+    <section class="painting-list" aria-label={`${collection.name} paintings`}>
+      {
+        paintings.map((painting, index) => (
+          <article class="painting">
+            <h2>{painting.data.title}</h2>
+
+            <a href={`/paintings/${painting.id}`} class="painting-image-link">
+              <Image
+                src={painting.data.image}
+                alt={painting.data.imageAlt}
+                widths={[640, 960, 1280, 1856]}
+                sizes="(max-width: 992px) calc(100vw - 3rem), 928px"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                fetchpriority={index === 0 ? 'high' : 'auto'}
+              />
+            </a>
+
+            <div class="painting-meta">
+              <p>{painting.data.medium}</p>
+              <p>{painting.data.size}</p>
+              <p>{painting.data.year}</p>
+              {
+                painting.data.status && (
+                  <p
+                    class:list={[
+                      'availability',
+                      { 'is-available': painting.data.status === 'Available' },
+                    ]}
+                  >
+                    <span>{painting.data.status}</span>
+                    {painting.data.status === 'Available' && painting.data.price && (
+                      <>
+                        <span aria-hidden="true">·</span>
+                        <span>${painting.data.price}</span>
+                      </>
+                    )}
+                  </p>
+                )
+              }
+            </div>
+          </article>
+        ))
+      }
+    </section>
+
+    <nav class="collection-nav" aria-label="Other collections">
+      <span>Explore another collection</span>
+      {
+        collectionDefinitions
+          .filter((candidate) => candidate.slug !== collection.slug)
+          .map((candidate) => (
+            <a href={`/gallery/${candidate.slug}`}>{candidate.name}</a>
+          ))
+      }
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+  .gallery {
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 8rem;
+  }
+
+  .gallery-header {
+    max-width: 48rem;
+    margin: 0 auto 6rem;
+    text-align: center;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .back-link:hover,
+  .back-link:focus-visible {
+    color: var(--color-text);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .gallery-header p {
+    margin: 2.5rem auto 0;
+    max-width: 38rem;
+    color: var(--color-muted);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    line-height: 1.55;
+  }
+
+  .painting-list {
+    display: grid;
+    gap: 7rem;
+  }
+
+  .painting {
+    display: grid;
+    gap: 2rem;
+    max-width: 58rem;
+    margin: 0 auto;
+    padding-bottom: 8rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .painting:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .painting h2 {
+    margin: 0;
+    max-width: 68rem;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .painting-image-link {
+    display: block;
+  }
+
+  .painting img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 72vh;
+    object-fit: contain;
+  }
+
+  .painting-meta {
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .painting-meta p {
+    margin: 0;
+  }
+
+  .availability.is-available {
+    display: flex;
+    gap: 0.4rem;
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .collection-nav {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    margin-top: 8rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--color-line);
+    text-align: center;
+  }
+
+  .collection-nav span {
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .collection-nav a {
+    color: var(--color-text);
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    line-height: 1.1;
+    text-decoration: none;
+  }
+
+  .collection-nav a:hover,
+  .collection-nav a:focus-visible {
+    color: var(--color-muted);
+  }
+
+  @media (min-width: 760px) {
+    .gallery {
+      padding-top: 3.5rem;
+    }
+
+    .painting {
+      gap: 2.5rem;
+    }
+
+    .painting-meta {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+</style>

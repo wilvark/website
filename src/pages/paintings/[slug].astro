@@ -3,24 +3,38 @@ import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import { getCollectionDefinition } from '../../data/collections';
 
 export async function getStaticPaths() {
   const paintings = await getCollection('paintings');
 
-  const sorted = paintings.sort((a, b) => a.data.order - b.data.order);
+  return paintings.map((painting) => {
+    const collectionPaintings = paintings
+      .filter(
+        (candidate) => candidate.data.collection === painting.data.collection
+      )
+      .sort((a, b) => a.data.order - b.data.order);
+    const index = collectionPaintings.findIndex(
+      (candidate) => candidate.id === painting.id
+    );
 
-  return sorted.map((painting, index) => ({
-    params: { slug: painting.id },
-    props: {
-      painting,
-      prev: index > 0 ? sorted[index - 1] : null,
-      next: index < sorted.length - 1 ? sorted[index + 1] : null,
-    },
-  }));
+    return {
+      params: { slug: painting.id },
+      props: {
+        painting,
+        prev: index > 0 ? collectionPaintings[index - 1] : null,
+        next:
+          index < collectionPaintings.length - 1
+            ? collectionPaintings[index + 1]
+            : null,
+      },
+    };
+  });
 }
 
 const { painting, prev, next } = Astro.props;
 const { Content } = await render(painting);
+const collection = getCollectionDefinition(painting.data.collection);
 
 const artworkSchema = {
   '@context': 'https://schema.org',
@@ -46,7 +60,10 @@ const artworkSchema = {
     name: 'Wil Vark',
     url: 'https://wilvark.com/about',
   },
-  ...(painting.data.series && { isPartOf: { '@type': 'CreativeWorkSeries', name: painting.data.series } }),
+  isPartOf: {
+    '@type': 'CreativeWorkSeries',
+    name: painting.data.series ?? painting.data.collection,
+  },
 };
 ---
 
@@ -66,7 +83,13 @@ const artworkSchema = {
 
     <article>
       <header class="painting-header">
-        {painting.data.series && <p class="series">{painting.data.series}</p>}
+        {
+          collection && (
+            <a class="collection" href={`/gallery/${collection.slug}`}>
+              {painting.data.collection}
+            </a>
+          )
+        }
         <h1>{painting.data.title}</h1>
       </header>
 
@@ -112,7 +135,10 @@ const artworkSchema = {
       </div>
     </article>
 
-    <nav class="painting-nav" aria-label="More paintings">
+    <nav
+      class="painting-nav"
+      aria-label={`More paintings in ${painting.data.collection}`}
+    >
       {
         prev ? (
           <a href={`/paintings/${prev.id}`} rel="prev" class="nav-prev">
@@ -147,12 +173,19 @@ const artworkSchema = {
     margin-bottom: 4rem;
   }
 
-  .series {
+  .collection {
+    display: inline-block;
     margin: 0 0 1.5rem;
     color: var(--color-muted);
     font-size: 0.75rem;
     letter-spacing: 0.18em;
+    text-decoration: none;
     text-transform: uppercase;
+  }
+
+  .collection:hover,
+  .collection:focus-visible {
+    color: var(--color-text);
   }
 
   h1 {

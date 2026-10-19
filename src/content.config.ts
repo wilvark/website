@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { collectionNames } from './data/collections';
 
 const paintings = defineCollection({
   loader: glob({
@@ -12,6 +13,7 @@ const paintings = defineCollection({
       year: z.number(),
       medium: z.string(),
       size: z.string(),
+      collection: z.enum(collectionNames).default('Memory of Seasons'),
       series: z.string().optional(),
       season: z.string().optional(),
       status: z

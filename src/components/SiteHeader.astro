@@ -6,6 +6,11 @@ const links = [
 ];
 
 const path = Astro.url.pathname.replace(/\/$/, '');
+
+const isCurrent = (href: string) =>
+  path === href ||
+  (href === '/gallery' &&
+    (path.startsWith('/gallery/') || path.startsWith('/paintings/')));
 ---
 
 <header class="site-header">
@@ -16,7 +21,7 @@ const path = Astro.url.pathname.replace(/\/$/, '');
       links.map((link) => (
         <a
           href={link.href}
-          aria-current={path === link.href ? 'page' : undefined}
+          aria-current={isCurrent(link.href) ? 'page' : undefined}
         >
           {link.label}
         </a>
