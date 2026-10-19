@@ -5,8 +5,7 @@ medium: "Oil on canvas"
 size: "9 × 12 in"
 series: "Memory of Seasons"
 season: "Winter"
-status: "Available"
-price: 200
+status: "Sold"
 image: "../../assets/paintings/acceptance-of-winter.jpg"
 imageAlt: "A red cardnal swoops down from the left to perched on a bare branch against a cool winter field."
 featured: true
