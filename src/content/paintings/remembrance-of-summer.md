@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/remembrance-of-summer.jpg"
 imageAlt: "A small carolina wren positioned on the right side of a quiet yellowish brown field, with open space extending to the right."
 featured: true
-order: 50
+order: 150
 ---
 
 A small carolina wren positioned on the right side of a quiet yellowish brown field, with open space extending to the right. A quiet painting about presence, stillness, and the remembrance of summer.

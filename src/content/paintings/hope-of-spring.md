@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/hope-of-spring.jpg"
 imageAlt: "A small chickadee leaping to the hope of spring against a cold winter field of grey."
 featured: true
-order: 15
+order: 40
 ---
 
 A small chickadee leaping to the hope of spring against a cold winter field of grey. A painting about cold, hope, and the first desire for spring to come.

@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/remembrance-of-winter.jpg"
 imageAlt: "A small gnatcatcher positioned on the left side of a quiet green field, with open space extending to the right."
 featured: true
-order: 20
+order: 60
 ---
 
 A small gnatcatcher positioned on the left side of a quiet green field, with open space extending to the right. A quiet painting about arrival, stillness, and the remembrance of winter.
