@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/acceptance-of-spring.jpg"
 imageAlt: "A small dark-eyed junco swoops down from the left to perched on a blossoming branch against a warm spring field."
 featured: true
-order: 16
+order: 50
 ---
 
 A small dark-eyed junco swoops down from the left to perch on a blossoming branch against a warm spring field. A painting about warmth, belonging, and the feeling of spring realized.

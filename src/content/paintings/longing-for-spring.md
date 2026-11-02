@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/longing-for-spring.jpg"
 imageAlt: "A small kinglet positioned on the left side of a quiet grey field, with open space extending to the right."
 featured: true
-order: 12
+order: 30
 ---
 
 A small kinglet positioned on the left side of a quiet grey field, with open space extending to the right. A quiet painting about presence, stillness, and the longing for spring.

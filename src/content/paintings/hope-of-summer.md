@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/hope-of-summer.jpg"
 imageAlt: "A small white-eyed bird perched among blossoms against a warm summer field."
 featured: true
-order: 30
+order: 80
 ---
 
 A small white-eyed bird perched among blossoms against a warm summer field. A painting about warmth, lift, and the first feeling of summer becoming possible.

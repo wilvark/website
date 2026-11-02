@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/remembrance-of-spring.jpg"
 imageAlt: "A small goldfinch positioned on the right side of a warn blue field, with open space extending to the right."
 featured: true
-order: 45
+order: 100
 ---
 
 A small goldfinch positioned on the right side of a warn blue field, with open space extending to the right. A quiet painting about presence, stillness, and the remembrance of spring.

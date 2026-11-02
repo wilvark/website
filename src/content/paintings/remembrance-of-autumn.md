@@ -9,7 +9,7 @@ status: "Sold"
 image: "../../assets/paintings/remembrance-of-autumn.jpg"
 imageAlt: "A small carolina chickadee positioned on the right side of a quiet grey field, with open space extending to the left."
 featured: true
-order: 10
+order: 20
 ---
 
 A small carolina chickadee positioned on the right side of a quiet grey field, with open space extending to the left. A quiet painting about presence, stillness, and the remembrance of autumn.

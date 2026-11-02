@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/acceptance-of-summer.jpg"
 imageAlt: "A small goldfinch swoops down from the left to perched on a verdant branch against a warm summer field."
 featured: true
-order: 40
+order: 90
 ---
 
 A small goldfinch swoops down from the left to perch on a verdant branch against a warm summer field. A painting about warmth, belonging, and the feeling of summer realized.

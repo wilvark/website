@@ -10,7 +10,7 @@ price: 200
 image: "../../assets/paintings/hope-of-autumn.jpg"
 imageAlt: "A small yellow rumped warbler leaping to the hope of autumn against a warn summer field of blue."
 featured: true
-order: 48
+order: 130
 ---
 
 A small yellow rumped warbler leaping to the hope of autumn against a warn summer field of blue. A painting about warmth, hope, and the desire for autumn to come.
